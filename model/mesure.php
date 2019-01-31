@@ -22,7 +22,7 @@ class Mesure extends dbManager
         $req = $pdo->query('SELECT temp, humi, date FROM data');
     }
 
-    protected function sendData()
+    protected function sendData($humidite, $temperature)
     {
         $pdo = $this->dbConnect();
         $req = $pdo->prepare('INSERT INTO dht11 (humi, temp) VALUES (:humi, :temp)');
